@@ -9,7 +9,7 @@
 </head>
 <body class="bg-blue-224 text-black-0 font-sans">
 
-  <header class="bg-blue-126 text-white p-4 shadow-md">
+  <header class="bg-blue-244 text-white p-4 shadow-md">
     <h1 class="text-2xl font-bold text-center">Recomanacions farmacològiques segons el Genotip</h1>
   </header>
 
@@ -36,7 +36,7 @@
 
     <!-- GEN2 Section -->
     <section>
-      <h2 class="text-xl font-semibold text-blue-800 mb-4">Taula Recomanacions Combinades - Gen 2</h2>
+      <h2 class="text-xl font-semibold text-blue-244 mb-4">Taula Recomanacions Combinades - Gen 2</h2>
       <div id="gen2-resultats" class="space-y-4">
         <script>
           document.addEventListener("DOMContentLoaded", () => {
@@ -45,7 +45,7 @@
               const div = document.createElement("div");
               div.className = "bg-white p-4 rounded-xl border border-blue-200 shadow";
               div.innerHTML = `
-                <h3 class="font-semibold text-blue-700 text-lg">${row["Gen"]} - ${row["Fàrmac"]}</h3>
+                <h3 class="font-semibold text-blue-126 text-lg">${row["Gen"]} - ${row["Fàrmac"]}</h3>
                 <p><strong>Fenotip:</strong> ${row["Fenotip"]}</p>
                 <p><strong>Família:</strong> ${row["Família"]}</p>
                 <p><strong>Recomanació:</strong> ${row["Recomanació"]}</p>
@@ -59,7 +59,7 @@
     </section>
   </main>
 
-  <footer class="bg-blue-700 text-white text-center p-4 mt-10">
+  <footer class="bg-blue-126 text-white text-center p-4 mt-10">
     <p class="text-sm">&copy; 2025 Mutació Farmacològica · Desenvolupat per N270203MR</p>
   </footer>
 </body>
