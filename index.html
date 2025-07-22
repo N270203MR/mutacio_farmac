@@ -2,17 +2,66 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title> Consulta farmacogenètica </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mutació Farmacològica</title>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1>Consulta per gen i fàrmac</h1>
-<label for="gen">Gen afectat:</label>
-<select id="gen"></select>
-<label for="fàrmac">Selecciona un fàrmac:</label>
-<select id="fàrmac"></select>
-<button onclick="cercar()">Consultar</button>
-<h2>Resultat:</h2>
-<div id="Resultat"></div>
-<script src="script.js></script>
+<body class="bg-blue-100 text-gray-800 font-sans">
+
+  <header class="bg-blue-700 text-white p-4 shadow-md">
+    <h1 class="text-2xl font-bold text-center">Recomanacions Farmacològiques segons Genotip</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <!-- GEN1 Section -->
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold text-blue-800 mb-4">Consulta Recomanacions - Taula Gen 1</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="gen-select" class="block text-sm font-medium text-blue-900">Selecciona un gen:</label>
+          <select id="gen-select" class="w-full p-2 rounded border border-blue-300 mt-1">
+            <option value="">-- Selecciona un gen --</option>
+          </select>
+        </div>
+        <div>
+          <label for="farmac-select" class="block text-sm font-medium text-blue-900">Selecciona un fàrmac:</label>
+          <select id="farmac-select" class="w-full p-2 rounded border border-blue-300 mt-1">
+            <option value="">-- Selecciona un fàrmac --</option>
+          </select>
+        </div>
+      </div>
+      <div id="resultat" class="mt-6"></div>
+    </section>
+
+    <!-- GEN2 Section -->
+    <section>
+      <h2 class="text-xl font-semibold text-blue-800 mb-4">Taula Recomanacions Combinades - Gen 2</h2>
+      <div id="gen2-resultats" class="space-y-4">
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("gen2-resultats");
+            gen2Data.forEach(row => {
+              const div = document.createElement("div");
+              div.className = "bg-white p-4 rounded-xl border border-blue-200 shadow";
+              div.innerHTML = `
+                <h3 class="font-semibold text-blue-700 text-lg">${row["Gen"]} - ${row["Fàrmac"]}</h3>
+                <p><strong>Fenotip:</strong> ${row["Fenotip"]}</p>
+                <p><strong>Família:</strong> ${row["Família"]}</p>
+                <p><strong>Recomanació:</strong> ${row["Recomanació"]}</p>
+                <p><strong>Font:</strong> ${row["Font"]}</p>
+              `;
+              container.appendChild(div);
+            });
+          });
+        </script>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-blue-700 text-white text-center p-4 mt-10">
+    <p class="text-sm">&copy; 2025 Mutació Farmacològica · Desenvolupat per N270203MR</p>
+  </footer>
 </body>
 </html>
+
