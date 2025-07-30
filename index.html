@@ -1,28 +1,34 @@
-<!DOCTYPE html>
+meta charset="UTF-8">
+  <<!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Informe farmacogenètic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe Genètic</title>
+  <script defer src="script.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; }
+    .resultat { margin-top: 2rem; padding: 1rem; border: 1px solid #ccc; background: #f9f9f9; }
+  </style>
 </head>
 <body>
-  <h1>Consulta farmacogenètica</h1>
+  <h1>Informe Genètic Personalitzat</h1>
 
-  <label for="gen">Gen:</label>
-  <select id="gen">
-    <option value="">-- Selecciona un gen --</option>
-  </select>
+  <label for="gen1">Gen 1</label>
+  <select id="gen1"></select>
 
-  <label for="farmac">Fàrmac:</label>
-  <select id="farmac">
-    <option value="">-- Selecciona un fàrmac --</option>
-  </select>
+  <label for="fenotip1">Fenotip 1</label>
+  <select id="fenotip1"></select>
 
-  <button id="consultar">Consultar</button>
+  <label for="gen2">Gen 2</label>
+  <select id="gen2"></select>
 
-  <hr>
-  <div id="resultat"></div>
+  <label for="fenotip2">Fenotip 2</label>
+  <select id="fenotip2"></select>
 
-  <script src="script.js"></script>
+  <div class="resultat" id="resultat">
+    Selecciona els valors per veure la recomanació...
+  </div>
 </body>
 </html>
