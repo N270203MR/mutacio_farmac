@@ -9,10 +9,10 @@ fetch('dades.json')
     const fenotips1 = [...new Set(data.map(row => row["Fenotip 1"]))];
     const fenotips2 = [...new Set(data.map(row => row["Fenotip 2"]))];
 
-    omplirSelect("gen1", gen1s);
-    omplirSelect("fenotip1", fenotips1);
-    omplirSelect("gen2", gen2s);
-    omplirSelect("fenotip2", fenotips2);
+    omplirSelect("gen 1", gen1s);
+    omplirSelect("fenotip 1", fenotips1);
+    omplirSelect("gen 2", gen2s);
+    omplirSelect("fenotip 2", fenotips2);
 
     document.querySelectorAll("select").forEach(select => {
       select.addEventListener("change", mostrarResultat);
@@ -26,10 +26,10 @@ function omplirSelect(id, options) {
 }
 
 function mostrarResultat() {
-  const gen1 = document.getElementById("gen1").value;
-  const fenotip1 = document.getElementById("fenotip1").value;
-  const gen2 = document.getElementById("gen2").value;
-  const fenotip2 = document.getElementById("fenotip2").value;
+  const gen1 = document.getElementById("gen 1").value;
+  const fenotip1 = document.getElementById("fenotip 1").value;
+  const gen2 = document.getElementById("gen 2").value;
+  const fenotip2 = document.getElementById("fenotip 2").value;
 
   const filtrat = data.filter(row =>
     row["Gen 1"] === gen1 &&
@@ -44,6 +44,7 @@ function mostrarResultat() {
     container.innerHTML = "No hi ha recomanacions disponibles per aquesta combinació.";
   } else {
     container.innerHTML = filtrat.map(row => `
+      <strong>Nivell:</strong> ${row["Nivell"]}<br>
       <strong>Família:</strong> ${row["Família"]}<br>
       <strong>Fàrmac:</strong> ${row["Fàrmac"]}<br>
       <strong>Recomanació:</strong> ${row["Recomanació"]}<br>
