@@ -2,32 +2,96 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Consulta Framacogenètica</title>
-  <link rel="stylesheet" href="style.css">
-  <button id="descarregaPDF" style="display:none;">Descarrega informe PDF</button>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe farmacogenètic</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e8f1f8;
+      color: #0b2e59;
+      margin: 0;
+      padding: 2rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    header img {
+      height: 60px;
+    }
+    h1 {
+      color: #084d81;
+      font-size: 1.8rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    select, button {
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      width: 100%;
+      max-width: 500px;
+      font-size: 1rem;
+      border: 1px solid #aacbe1;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #1e73be;
+      color: white;
+      border: none;
+      margin-top: 2rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #155a96;
+    }
+    #resultat {
+      margin-top: 2rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .card {
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid #1e73be;
+    }
+    .label {
+      font-weight: bold;
+      color: #0b5394;
+    }
+  </style>
 </head>
 <body>
-  <h1>Consulta per gen i fenotip</h1>
+  <header>
+    <img src="logo.png" alt="Logo UDMMP Trueta" />
+    <h1>Recomanació farmacogenètica</h1>
+  </header>
 
-  <label for="Gen 1">Gen 1:</label>
-  <select id="Gen 1"></select>
+  <label for="gen1">Gen 1:</label>
+  <select id="gen1"></select>
 
-  <label for="Fenotip 1"> Fenotip 1:</label>
-  <select id="Fenotip 1"></select>
+  <label for="fenotip1">Fenotip 1:</label>
+  <select id="fenotip1"></select>
 
-  <label for="Gen 2">Gen 2:</label>
-  <select id="Gen 2"></select>
+  <label for="gen2">Gen 2 (opcional):</label>
+  <select id="gen2"></select>
 
-  <label for="Fenotip 2">Fenotip 2:</label>
-  <select id="Fenotip 2"></select>
+  <label for="fenotip2">Fenotip 2 (opcional):</label>
+  <select id="fenotip2"></select>
 
-  <button onclick="cercar()">Consultar</button>
+  <button id="consultar">Consultar recomanació</button>
+  <button id="descarregaPDF" style="display:none;">Descarrega PDF</button>
 
-  <h2>Resultat</h2>
-  <div class="resultat" id="resultat">
-    Selecciona els valors per veure la recomanació...
-  </div>
+  <div id="resultat"></div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
