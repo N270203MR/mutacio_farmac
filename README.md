@@ -25,7 +25,8 @@ Selecciona:
 Et mostrarà:
 - Recomanació terapèutica personalitzada
 - Font (ex: CPIC 2023)
-- Fàrmac afectat i comentari opcional
+- Fàrmac afectat
+- Comentari (opcional)
 - Nivell
 - Família de malalties
 
