@@ -1,3 +1,4 @@
+
 let dades = [];
 
 fetch('dades.json')
