@@ -1,15 +1,22 @@
-
-let dades;
+let dades = {
+  "CYP2C19": {
+    "PM": "Evitar clopidogrel. Considera prasugrel o ticagrelor.",
+    "IM": "Resposta reduïda a clopidogrel. Considera alternativa.",
+    "NM": "Metabolisme normal, ús estàndard de clopidogrel.",
+    "UM": "Risc d'ineficàcia reduït, ús estàndard."
+  },
+  "DPYD": {
+    "PM": "Evitar fluorouracil i capecitabina. Risc alt de toxicitat.",
+    "IM": "Reduir dosi inicial de 5-FU/Capecitabina.",
+    "NM": "Dosi estàndard de fluoropirimidines.",
+    "UM": "Metabolisme ràpid. Dosi estàndard."
+  }
+};
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch('./dades.json')
-    .then(response => response.json())
-    .then(json => {
-      dades = json;
-      const gens = Object.keys(dades);
-      omplirSelect('gen1', gens);
-      omplirSelect('gen2', gens);
-    });
+  const gens = Object.keys(dades);
+  omplirSelect('gen1', gens);
+  omplirSelect('gen2', gens);
 
   ['gen1', 'gen2'].forEach(genId => {
     document.getElementById(genId).addEventListener('change', (e) => {
