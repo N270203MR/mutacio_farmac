@@ -51,6 +51,41 @@ function omplirSelect(id, options) {
   const select = document.getElementById(id);
   select.innerHTML = '<option value="">-- Selecciona --</option>' +
     options.map(o => `<option value="${o}">${o}</option>`).join('');
+  document.getElementById("consultar").addEventListener("click", () => {
+  // ... codi de cerca anterior
+
+  const btnPDF = document.getElementById("descarregaPDF");
+
+  if (trobats.length > 0) {
+    btnPDF.style.display = "inline-block";
+    btnPDF.onclick = () => {
+      const win = window.open('', 'PRINT', 'height=600,width=800');
+      win.document.write(`<html><head><title>Informe farmacogenètic</title></head><body>`);
+      win.document.write('<h1>Informe farmacogenètic</h1>');
+
+      trobats.forEach(d => {
+        win.document.write(`
+          <p><strong>Gen(s):</strong> ${d.gens}</p>
+          <p><strong>Fenotip(s):</strong> ${d.fenotips}</p>
+          <p><strong>Fàrmac:</strong> ${d.farmac}</p>
+          <p><strong>Família:</strong> ${d.familia}</p>
+          <p><strong>Nivell:</strong> ${d.nivell}</p>
+          <p><strong>Recomanació:</strong> ${d.recomanacio}</p>
+          <p><strong>Font:</strong> ${d.font}</p>
+          <hr>
+        `);
+      });
+
+      win.document.write('</body></html>');
+      win.document.close();
+      win.focus();
+      win.print();
+      win.close();
+    };
+  } else {
+    btnPDF.style.display = "none";
+  }
+});
 }
 
 function cercar() {
@@ -64,25 +99,6 @@ function cercar() {
     row.Fenotip1 === fenotip1 &&
     row.Gen2 === gen2 &&
     row.Fenotip2 === fenotip2
-  );
+   );
+   }
 
-  const div = document.getElementById("resultat");
-  div.innerHTML = "";
-
-  if (resultat.length > 0) {
-    resultats.forEach(r => {
-      const informe = 
-      <p><strong>Nivell:</strong></p>
-      <p><strong>Família:</strong></p>
-      <p><strong>Fàrmac:</strong></p>
-      <p><strong>Recomanació:</strong></p>
-      <p><strong>Font:</strong></p>
-      <p><strong>Comentari:</strong></p> 
-      <hr>
-    `;
-    div.innerHTML += informe;
-  });
-} else {
-div.innerHTML = "No s'ha trobat cap recomanació per aquesta combinació";
-  }
-}
